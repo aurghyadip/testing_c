@@ -1,0 +1,72 @@
+        -:    0:Source:twos_complement.c
+        -:    0:Graph:twos_complement.gcno
+        -:    0:Data:twos_complement.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3: 
+        -:    4:#define SIZE 8
+        -:    5: 
+function main called 1 returned 100% blocks executed 96%
+        1:    6:int main()
+        -:    7:{
+        -:    8:    char binary[SIZE + 1], onesComp[SIZE + 1], twosComp[SIZE + 1];
+        1:    9:    int i, carry=1;
+        1:   10:    printf("Enter any %d bit binary value: ", SIZE);
+call    0 returned 100%
+        1:   11:    gets(binary);
+call    0 returned 100%
+        9:   12:    for(i=0; i<SIZE; i++)
+branch  0 taken 89%
+branch  1 taken 11% (fallthrough)
+        -:   13:    {
+        8:   14:        if(binary[i]=='1')
+branch  0 taken 38% (fallthrough)
+branch  1 taken 63%
+        -:   15:        {
+        3:   16:            onesComp[i] = '0';
+        -:   17:        }
+        5:   18:        else if(binary[i]=='0')
+branch  0 taken 40% (fallthrough)
+branch  1 taken 60%
+        -:   19:        {
+        2:   20:            onesComp[i] = '1';
+        -:   21:        }
+        -:   22:    }
+        1:   23:    onesComp[SIZE] = '\0';
+        9:   24:    for(i=SIZE-1; i>=0; i--)
+branch  0 taken 89%
+branch  1 taken 11% (fallthrough)
+        -:   25:    {
+        8:   26:        if(onesComp[i]=='1' && carry==1)
+branch  0 taken 25% (fallthrough)
+branch  1 taken 75%
+branch  2 taken 0% (fallthrough)
+branch  3 taken 100%
+        -:   27:        {
+    #####:   28:            twosComp[i] = '0';
+        -:   29:        }
+        8:   30:        else if(onesComp[i]=='0' && carry==1)
+branch  0 taken 38% (fallthrough)
+branch  1 taken 63%
+branch  2 taken 33% (fallthrough)
+branch  3 taken 67%
+        -:   31:        {
+        1:   32:            twosComp[i] = '1';
+        1:   33:            carry = 0;
+        -:   34:        }
+        -:   35:        else
+        -:   36:        {
+        7:   37:            twosComp[i] = onesComp[i];
+        -:   38:        }
+        -:   39:    }
+        1:   40:    twosComp[SIZE] = '\0';
+        1:   41:    printf("\nOriginal binary value = %s\n", binary);
+call    0 returned 100%
+        1:   42:    printf("One's complement = %s\n", onesComp);
+call    0 returned 100%
+        1:   43:    printf("Two's complement = %s", twosComp);
+call    0 returned 100%
+        1:   44:    return 0;
+        -:   45:}

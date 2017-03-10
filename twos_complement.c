@@ -1,7 +1,3 @@
-/**
- * C program to find 2's complement of a binary number
- */
- 
 #include <stdio.h>
 #include <string.h>
  
@@ -11,16 +7,8 @@ int main()
 {
     char binary[SIZE + 1], onesComp[SIZE + 1], twosComp[SIZE + 1];
     int i, carry=1;
- 
-    /*
-     * Reads binary number from user
-     */
     printf("Enter any %d bit binary value: ", SIZE);
     gets(binary);
- 
-    /*
-     * Finds the 1's complement of the binary number
-     */
     for(i=0; i<SIZE; i++)
     {
         if(binary[i]=='1')
@@ -33,10 +21,6 @@ int main()
         }
     }
     onesComp[SIZE] = '\0';
- 
-    /*
-     * Adds 1 to the 1's complement of the binary number to get 2's complement
-     */
     for(i=SIZE-1; i>=0; i--)
     {
         if(onesComp[i]=='1' && carry==1)
@@ -54,10 +38,8 @@ int main()
         }
     }
     twosComp[SIZE] = '\0';
- 
     printf("\nOriginal binary value = %s\n", binary);
     printf("One's complement = %s\n", onesComp);
     printf("Two's complement = %s", twosComp);
- 
     return 0;
 }

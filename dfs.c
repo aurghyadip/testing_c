@@ -1,7 +1,3 @@
-/*
- * C Program for Depth First Binary Tree Search without using 
- * Recursion
- */
 #include <stdio.h>
 #include <stdlib.h>
  
