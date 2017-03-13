@@ -10,6 +10,7 @@ int main()
   CREST_int(a);
   CREST_int(b);
   CREST_int(c);
+  printf("a = %d b = %d c = %d\t",a,b,c);
   triangle_check(a,b,c);
   return 0;
 }
@@ -33,17 +34,14 @@ void triangle_type(int a, int b, int c)
 {
   if(a==b && b==c)
   {
-    printf("a = %d\nb = %d\nc = %d\n",a,b,c);
     printf("Equilateral triangle.\n");
   }
   else if(a==b || a==c || b==c)
   {
-    printf("a = %d\nb = %d\nc = %d\n",a,b,c);
     printf("Isosceles triangle.\n");
   }
   else
   {
-    printf("a = %d\nb = %d\nc = %d\n",a,b,c);
     printf("Scalene triangle.\n");
   }
 }

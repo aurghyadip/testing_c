@@ -1,4 +1,5 @@
 /*C program to validate date and print weekday of given date.*/
+#include <crest.h>
 #include <stdio.h>
 
 /*
@@ -19,7 +20,7 @@ int validateDate(int d,int m,int y)
 			{
 				if( (d>=1 && d<=30) && (m==4||m==6||m==9||m==11))
 					return 1;	//valid date
-				else if((d>=1 && d<=30) && (m==1||m==3||m==5||m==7||m==8||m==10||m==12))
+				else if((d>=1 && d<=31) && (m==1||m==3||m==5||m==7||m==8||m==10||m==12))
 					return 1;	//valid date
 				else if((d>=1 && d<=28) && (m==2))
 					return 1;	//valid date
@@ -64,12 +65,17 @@ int main()
 	char dayNames[][12]={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
 
 	//input date
-	printf("Input date (DD-MM-YYYY): ");
-	scanf("%d-%d-%d",&day,&month,&year);
+	// printf("Input date (DD-MM-YYYY): ");
+	// scanf("%d-%d-%d",&day,&month,&year);
+	CREST_int(day);
+	CREST_int(month);
+	CREST_int(year);
 
+	printf("\nDay = %d\tMonth = %d\tYear = %d\t",day,month,year);
 	//check date is correct or not
 	if(validateDate(day,month,year)==1){
-		printf("Date is correct [%02d/%02d/%02d].\n",day,month,year);
+		// printf("Correct[%02d/%02d/%02d]  ",day,month,year);
+		// printf("Date is correct [%02d/%02d/%02d].\n",day,month,year);
 		//get weekday number
 		wDayNo=wd(year,month,day);
 		//print weekday according to wDayNo
