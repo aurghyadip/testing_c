@@ -1,5 +1,5 @@
 /*C program to validate date and print weekday of given date.*/
-#include <crest.h>
+// #include <crest.h>
 #include <stdio.h>
 
 /*
@@ -7,7 +7,7 @@
  * arguments: d- day, m- month, y- year
  * return type: 0 - invalid, 1 - valid
  * */
-int validateDate(int d,int m,int y)
+unsigned int validateDate(unsigned int d,unsigned int m,unsigned int y)
 {
 	//check year validity
 	if(y>=1800 && y<=2999)
@@ -45,9 +45,9 @@ int validateDate(int d,int m,int y)
 	}
 }
 // This function will return week day number from 0 to 6
-int wd(int year, int month, int day)
+unsigned int wd(unsigned int year, unsigned int month, unsigned int day)
 {
-	int wday=0;
+	unsigned int wday=0;
 	wday=(day  + ((153 * (month + 12 * ((14 - month) / 12) - 3) + 2) / 5) \
         + (365 * (year + 4800 - ((14 - month) / 12)))              \
         + ((year + 4800 - ((14 - month) / 12)) / 4)                \
@@ -58,20 +58,20 @@ int wd(int year, int month, int day)
      return wday;
 }
 
-int main()
+unsigned int main()
 {
-	int day,month,year;
-	int wDayNo=0;
+	unsigned int day,month,year;
+	unsigned int wDayNo=0;
 	char dayNames[][12]={"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
 
 	//input date
-	// printf("Input date (DD-MM-YYYY): ");
-	// scanf("%d-%d-%d",&day,&month,&year);
-	CREST_int(day);
-	CREST_int(month);
-	CREST_int(year);
+	printf("Input date (DD-MM-YYYY): ");
+	scanf("%u-%u-%u",&day,&month,&year);
+	// CREST_int(day);
+	// CREST_int(month);
+	// CREST_int(year);
 
-	printf("\nDay = %d\tMonth = %d\tYear = %d\t",day,month,year);
+	printf("\nDay = %u\tMonth = %u\tYear = %u\t",day,month,year);
 	//check date is correct or not
 	if(validateDate(day,month,year)==1){
 		// printf("Correct[%02d/%02d/%02d]  ",day,month,year);
